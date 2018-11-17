@@ -1,2 +1,1 @@
-# BulletinBoard
-Bulletin Board (Vue.js / Vuex + Firebase) Status: Development
+# Bulletin Board (Vue.js / Vuetify / Vuex + Firebase)
