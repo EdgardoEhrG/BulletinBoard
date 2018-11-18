@@ -5,7 +5,7 @@ import Router from 'vue-router'
 import Home from '../view/Home.vue'
 import Login from '../view/Login.vue'
 import Registration from '../view/Registration.vue'
-import Ads from '../view/Ads.vue'
+import Orders from '../view/Orders.vue'
 import NewAd from '../view/NewAd.vue'
 import MyAds from '../view/MyAds.vue'
 import Ad from '../view/Ad.vue'
@@ -25,9 +25,9 @@ export default new Router({
       component: Ad
     },
     {
-      path: '/ads',
-      name: 'ads',
-      component: Ads
+      path: '/orders',
+      name: 'orders',
+      component: Orders
     },
     {
       path: '/new',
