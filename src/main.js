@@ -2,6 +2,7 @@ import Vue from 'vue'
 
 /* Vue Modules */
 import router from './router/routes'
+import store from './store'
 
 /* Main Component */
 import App from './App'
@@ -25,6 +26,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
