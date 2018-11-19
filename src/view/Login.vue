@@ -28,7 +28,12 @@
                                 )
                     v-card-actions
                         v-spacer
-                        v-btn(@click="onSubmit" :dark="valid" :disabled="!valid") Login
+                        v-btn(
+                          @click="onSubmit"
+                          :dark="valid"
+                          :disabled="!valid || loading"
+                          :loading="loading"
+                          ) Login
 </template>
 
 <script>
@@ -56,8 +61,15 @@ export default {
           email: this.email,
           password: this.password
         }
-        console.log(user)
+        this.$store.dispatch('toLoginUser', user)
+          .then(() => this.$router.push('/'))
+          .catch(err => console.error(err))
       }
+    }
+  },
+  computed: {
+    loading () {
+      return this.$store.getters.loading
     }
   }
 }

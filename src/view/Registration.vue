@@ -38,7 +38,12 @@
                                 )
                     v-card-actions
                         v-spacer
-                        v-btn(@click="onSubmit" :dark="valid" :disabled="!valid") Create account
+                        v-btn(
+                          @click="onSubmit"
+                          :dark="valid"
+                          :disabled="!valid || loading"
+                          :loading="loading"
+                          ) Create account
 </template>
 
 <script>
@@ -71,8 +76,15 @@ export default {
           email: this.email,
           password: this.password
         }
-        console.log(user)
+        this.$store.dispatch('toRegisterUser', user)
+          .then(() => this.$router.push('/'))
+          .catch(err => console.error(err))
       }
+    }
+  },
+  computed: {
+    loading () {
+      return this.$store.getters.loading
     }
   }
 }

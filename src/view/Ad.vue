@@ -3,13 +3,13 @@
         v-layout(row)
             v-flex(xs12)
                 v-card
-                    v-card-media(
-                        src="https://jknowles.com/wp-content/uploads/2017/01/JK_Gillette3-1.jpg"
+                    v-img(
+                        :src="ad.imgSrc"
                         height="300px"
                         )
                     v-card-text
-                        h1.text--primary Title
-                        p Text
+                        h1.text--primary {{ ad.title }}
+                        p {{ ad.description }}
                     v-card-actions
                         v-spacer
                         v-btn.warning(flat) Edit
@@ -18,12 +18,20 @@
 
 <script>
 export default {
-  name: 'login'
+  name: 'login',
+  props: {
+    id: {type: String, required: true}
+  },
+  computed: {
+    ad () {
+      const id = parseInt(this.id)
+      return this.$store.getters.adById(id)
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-
 </style>
 
 

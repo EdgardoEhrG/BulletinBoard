@@ -11,7 +11,7 @@
             v-layout(row wrap)
                 v-flex(xs12 md4 sm6  v-for="ad in ads" :key="ad.id")
                     v-card
-                        v-card-media(:src="ad.imgSrc" height="200px")
+                        v-img(:src="ad.imgSrc" height="200px")
                         v-card-title(primary-title)
                             div
                                 h3(class="headline mb-0") {{ ad.title }}

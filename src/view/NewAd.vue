@@ -13,14 +13,13 @@
                                 :rules="[v => !!v || 'Title is required']"
                                 required
                                 )
-                            v-text-field(
+                            v-textarea(
                                 prepend-icon="description"
                                 name="description"
                                 label="Ad description"
                                 type="text"
                                 v-model="description"
                                 :rules="[v => !!v || 'Description is required']"
-                                multi-line
                                 required
                                 )
                 v-layout.mb-3(row)
@@ -55,9 +54,10 @@ export default {
         const ad = {
           title: this.title,
           description: this.description,
-          promo: this.promo
+          promo: this.promo,
+          imgSrc: 'https://cdn-images-1.medium.com/max/2000/1*nfvapd86apvGH-hNBYkYuw.png'
         }
-        console.log(ad)
+        this.$store.dispatch('toCreateAd', ad)
       }
     }
   }

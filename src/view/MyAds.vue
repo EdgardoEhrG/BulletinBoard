@@ -6,7 +6,7 @@
                 v-card(class="elecation-10 mb-4" v-for="ad in myAds" :key="ad.id")
                     v-layout(row)
                         v-flex(xs4)
-                            v-card-media(:src="ad.imgSrc" height="160px")
+                            v-img(:src="ad.imgSrc" height="160px")
                         v-flex(xs8)
                             v-card-text
                                 h2.text-primary {{ ad.title }}

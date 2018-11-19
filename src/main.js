@@ -4,6 +4,9 @@ import Vue from 'vue'
 import router from './router/routes'
 import store from './store'
 
+/* Other Modules */
+import * as fb from 'firebase'
+
 /* Main Component */
 import App from './App'
 
@@ -28,5 +31,15 @@ new Vue({
   router,
   store,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  created () {
+    fb.initializeApp({
+      apiKey: 'AIzaSyB3JioSyFFT0bXRcCRwwxg_3Nd2CDGlO2w',
+      authDomain: 'bulletin-board-ep.firebaseapp.com',
+      databaseURL: 'https://bulletin-board-ep.firebaseio.com',
+      projectId: 'bulletin-board-ep',
+      storageBucket: 'bulletin-board-ep.appspot.com',
+      messagingSenderId: '221098756212'
+    })
+  }
 })
