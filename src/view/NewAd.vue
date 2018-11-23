@@ -34,7 +34,7 @@
                 v-layout.mb-3(row)
                     v-flex(xs12)
                         v-spacer
-                        v-btn.success(@click="createAd" :disabled="!valid") Create Ad
+                        v-btn.success(@click="createAd" :disabled="!valid || loading" :loading="loading") Create Ad
 </template>
 
 <script>
@@ -51,14 +51,23 @@ export default {
   methods: {
     createAd () {
       if (this.$refs.form.validate()) {
-        const ad = {
+        const newAd = {
           title: this.title,
           description: this.description,
           promo: this.promo,
           imgSrc: 'https://cdn-images-1.medium.com/max/2000/1*nfvapd86apvGH-hNBYkYuw.png'
         }
-        this.$store.dispatch('toCreateAd', ad)
+        this.$store.dispatch('toCreateAd', newAd)
+            .then(() => {
+              this.$router.push('/my')
+            })
+            .catch(() => {})
       }
+    }
+  },
+  computed: {
+    loading () {
+      return this.$store.getters.loading
     }
   }
 }

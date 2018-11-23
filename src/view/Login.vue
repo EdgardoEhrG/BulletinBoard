@@ -62,14 +62,21 @@ export default {
           password: this.password
         }
         this.$store.dispatch('toLoginUser', user)
-          .then(() => this.$router.push('/'))
-          .catch(err => console.error(err))
+          .then((res) => {
+            this.$router.push('/')
+          })
+          .catch(() => {})
       }
     }
   },
   computed: {
     loading () {
       return this.$store.getters.loading
+    }
+  },
+  created () {
+    if (this.$route.query['loginError']) {
+      this.$store.dispatch('toSetError', 'Please log in')
     }
   }
 }

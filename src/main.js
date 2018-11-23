@@ -41,5 +41,13 @@ new Vue({
       storageBucket: 'bulletin-board-ep.appspot.com',
       messagingSenderId: '221098756212'
     })
+
+    fb.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.$store.dispatch('toAutoLogin', user)
+      }
+    })
+
+    // this.$store.dispatch('toFetchAds')
   }
 })

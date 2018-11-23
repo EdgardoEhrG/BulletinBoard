@@ -24,7 +24,7 @@ export default {
   },
   computed: {
     ad () {
-      const id = parseInt(this.id)
+      const id = this.id
       return this.$store.getters.adById(id)
     }
   }

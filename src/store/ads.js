@@ -1,3 +1,16 @@
+import * as fb from 'firebase'
+
+class Ad {
+  construtor (title, description, ownerId, imgSrc = '', promo = false, id = null) {
+    this.title = title
+    this.description = description
+    this.ownerId = ownerId
+    this.imgSrc = imgSrc
+    this.promo = promo
+    this.id = id
+  }
+}
+
 export default {
   state: {
     ads: [
@@ -11,12 +24,51 @@ export default {
   mutations: {
     createAd (state, payload) {
       state.ads.push(payload)
+    },
+    loadAds (state, payload) {
+      state.ads = payload
     }
   },
   actions: {
-    toCreateAd ({commit}, payload) {
-      payload.id = Math.floor(Math.random() + 30)
-      commit('createAd', payload)
+    async toCreateAd ({commit, getters}, { title, description, imgSrc, promo }) {
+      commit('clearError')
+      commit('setLoading', true)
+      try {
+        const ad = new Ad(
+          title,
+          description,
+          getters.user.id,
+          imgSrc,
+          promo
+        )
+        const fbVal = await fb.database().ref('ads').push(ad)
+        commit('setLoading', false)
+        commit('createAd', { title, description, imgSrc, promo, id: fbVal.key })
+      } catch (error) {
+        commit('setError', error.message)
+        commit('setLoading', false)
+        throw error
+      }
+    },
+    async toFetchAds ({commit}) {
+      commit('clearError')
+      commit('setLoading', true)
+      const resAds = []
+      try {
+        const fbGettinVal = await fb.database().ref('ads').once('value')
+        const ads = fbGettinVal.val()
+        Object.keys(ads).forEach(key => {
+          const ad = ads[key]
+          const { title, description, ownerId, imgSrc, promo } = ad
+          resAds.push(new Ad(title, description, ownerId, imgSrc, promo, key))
+        })
+        commit('loadAds', resAds)
+        commit('setLoading', false)
+      } catch (error) {
+        commit('setError', error.message)
+        commit('setLoading', false)
+        throw error
+      }
     }
   },
   getters: {

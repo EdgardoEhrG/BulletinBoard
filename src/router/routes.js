@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Guard from './guard'
 
 /* Viewes */
 import Home from '../view/Home.vue'
@@ -28,17 +29,20 @@ export default new Router({
     {
       path: '/orders',
       name: 'orders',
-      component: Orders
+      component: Orders,
+      beforeEnter: Guard
     },
     {
       path: '/new',
       name: 'newAd',
-      component: NewAd
+      component: NewAd,
+      beforeEnter: Guard
     },
     {
       path: '/my',
       name: 'myAds',
-      component: MyAds
+      component: MyAds,
+      beforeEnter: Guard
     },
     {
       path: '/login',

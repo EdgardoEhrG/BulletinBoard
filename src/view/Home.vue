@@ -1,5 +1,5 @@
 <template lang="pug">
-    div
+    div(v-if="!loading")
         v-container(fluid)
             v-layout(row)
                 v-flex(xs12)
@@ -20,6 +20,11 @@
                             v-spacer
                             v-btn(flat :to="'/ad/' + ad.id") Open
                             v-btn(raised dark) Buy
+    div(v-else)
+        v-container
+            v-layout(row)
+                v-flex.text-xs-center(xs-12 pt-5)
+                    v-progress-circular(indeterminate :size="70" width="7" color="black")
 </template>
 
 <script>
@@ -31,6 +36,9 @@ export default {
     },
     ads () {
       return this.$store.getters.ads
+    },
+    loading () {
+      return this.$store.getters.loading
     }
   }
 }

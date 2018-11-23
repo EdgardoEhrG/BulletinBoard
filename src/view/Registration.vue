@@ -78,7 +78,7 @@ export default {
         }
         this.$store.dispatch('toRegisterUser', user)
           .then(() => this.$router.push('/'))
-          .catch(err => console.error(err))
+          .catch(() => {})
       }
     }
   },
