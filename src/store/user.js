@@ -10,11 +10,13 @@ export default {
   state: {
     user: null
   },
+
   mutations: {
     setUser (state, payload) {
       state.user = payload
     }
   },
+
   actions: {
     async toRegisterUser ({commit}, {email, password}) {
       commit('clearError')
@@ -48,6 +50,7 @@ export default {
       commit('setUser', null)
     }
   },
+
   getters: {
     user (state) {
       return state.user

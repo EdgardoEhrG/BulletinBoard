@@ -10,7 +10,7 @@ import * as fb from 'firebase'
 /* Main Component */
 import App from './App'
 
-/* ~ Vuetrap */
+/* ~ Vuetify */
 import Vuetify from 'vuetify'
 
 Vue.use(Vuetify, { theme: {
@@ -38,7 +38,6 @@ new Vue({
       authDomain: 'bulletin-board-ep.firebaseapp.com',
       databaseURL: 'https://bulletin-board-ep.firebaseio.com',
       projectId: 'bulletin-board-ep',
-      storageBucket: 'bulletin-board-ep.appspot.com',
       messagingSenderId: '221098756212'
     })
 

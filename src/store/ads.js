@@ -21,6 +21,7 @@ export default {
         {title: 'Gillette', description: 'Shaving product', promo: true, imgSrc: 'https://jknowles.com/wp-content/uploads/2017/01/JK_Gillette3-1.jpg', id: 5}
     ]
   },
+
   mutations: {
     createAd (state, payload) {
       state.ads.push(payload)
@@ -29,6 +30,7 @@ export default {
       state.ads = payload
     }
   },
+
   actions: {
     async toCreateAd ({commit, getters}, { title, description, imgSrc, promo }) {
       commit('clearError')
@@ -71,6 +73,7 @@ export default {
       }
     }
   },
+
   getters: {
     ads (state) {
       return state.ads
