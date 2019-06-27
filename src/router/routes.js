@@ -3,13 +3,13 @@ import Router from 'vue-router'
 import Guard from './guard'
 
 /* Viewes */
-import Home from '../view/Home.vue'
-import Login from '../view/Login.vue'
-import Registration from '../view/Registration.vue'
-import Orders from '../view/Orders.vue'
-import NewAd from '../view/NewAd.vue'
-import MyAds from '../view/MyAds.vue'
-import Ad from '../view/Ad.vue'
+import Home from '../pages/Home.vue'
+import Login from '../pages/Login.vue'
+import Registration from '../pages/Registration.vue'
+import Orders from '../pages/Orders.vue'
+import NewAd from '../pages/NewAd.vue'
+import MyAds from '../pages/MyAds.vue'
+import Ad from '../pages/Ad.vue'
 
 Vue.use(Router)
 
