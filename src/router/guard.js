@@ -1,9 +1,9 @@
-import store from '../store'
+import store from "../store";
 
-export default function Guard (to, from, next) {
+export default function Guard(to, from, next) {
   if (store.getters.user) {
-    next()
+    next();
   } else {
-    next('./login?loginError=true')
+    next("./login?loginError=true");
   }
 }

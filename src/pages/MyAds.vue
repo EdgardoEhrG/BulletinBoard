@@ -18,17 +18,13 @@
 
 <script>
 export default {
-  name: 'my-ads',
+  name: "my-ads",
   computed: {
-    myAds () {
-      return this.$store.getters.myAds
-    }
-  }
-}
+    myAds() {
+      return this.$store.getters.myAds;
+    },
+  },
+};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
-
-
+<style lang="scss" scoped></style>

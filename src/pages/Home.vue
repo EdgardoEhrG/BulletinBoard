@@ -29,38 +29,34 @@
 
 <script>
 export default {
-  name: 'home',
+  name: "home",
   computed: {
-    promoAds () {
-      return this.$store.getters.promoAds
+    promoAds() {
+      return this.$store.getters.promoAds;
     },
-    ads () {
-      return this.$store.getters.ads
+    ads() {
+      return this.$store.getters.ads;
     },
-    loading () {
-      return this.$store.getters.loading
-    }
-  }
-}
+    loading() {
+      return this.$store.getters.loading;
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-
 .carousel-link {
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
 
-    padding: 5px 15px;
+  padding: 5px 15px;
 
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 
-    background-color: rgba(0, 0, 0, .5);
+  background-color: rgba(0, 0, 0, 0.5);
 
-    transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
 }
-
 </style>
-
-

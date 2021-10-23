@@ -48,47 +48,48 @@
 
 <script>
 export default {
-  name: 'registration',
-  data () {
+  name: "registration",
+  data() {
     return {
-      email: '',
-      password: '',
-      confirmPassword: '',
+      email: "",
+      password: "",
+      confirmPassword: "",
       valid: false,
       emailRules: [
-        v => !!v || 'E-mail is required',
-        v => /.+@.+/.test(v) || 'E-mail must be valid'
+        (v) => !!v || "E-mail is required",
+        (v) => /.+@.+/.test(v) || "E-mail must be valid",
       ],
       passwordRules: [
-        v => !!v || 'Password is required',
-        v => v.length >= 6 || 'Password must be equal or more than 6 characters'
+        (v) => !!v || "Password is required",
+        (v) =>
+          v.length >= 6 || "Password must be equal or more than 6 characters",
       ],
       confirmPasswordRules: [
-        v => !!v || 'Password is required',
-        v => v === this.password || 'Password does not match'
-      ]
-    }
+        (v) => !!v || "Password is required",
+        (v) => v === this.password || "Password does not match",
+      ],
+    };
   },
   methods: {
-    onSubmit () {
+    onSubmit() {
       if (this.$refs.form.validate()) {
         const user = {
           email: this.email,
-          password: this.password
-        }
-        this.$store.dispatch('toRegisterUser', user)
-          .then(() => this.$router.push('/'))
-          .catch(() => {})
+          password: this.password,
+        };
+        this.$store
+          .dispatch("toRegisterUser", user)
+          .then(() => this.$router.push("/"))
+          .catch(() => {});
       }
-    }
+    },
   },
   computed: {
-    loading () {
-      return this.$store.getters.loading
-    }
-  }
-}
+    loading() {
+      return this.$store.getters.loading;
+    },
+  },
+};
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

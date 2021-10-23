@@ -16,24 +16,26 @@
 
 <script>
 export default {
-  name: 'orders',
-  data () {
+  name: "orders",
+  data() {
     return {
       orders: [
-          {id: 1, name: 'User', phone: 'x-xxx-xxx-xx-xx', adID: '1', done: false}
-      ]
-    }
+        {
+          id: 1,
+          name: "User",
+          phone: "x-xxx-xxx-xx-xx",
+          adID: "1",
+          done: false,
+        },
+      ],
+    };
   },
   methods: {
-    markDone (order) {
-      order.done = true
-    }
-  }
-}
+    markDone(order) {
+      order.done = true;
+    },
+  },
+};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
-
-
+<style lang="scss" scoped></style>

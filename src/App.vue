@@ -34,53 +34,50 @@
 
 <script>
 export default {
-  name: 'App',
-  data () {
+  name: "App",
+  data() {
     return {
-      drawer: false
-    }
+      drawer: false,
+    };
   },
   methods: {
-    closeError () {
-      this.$store.dispatch('toClearError')
+    closeError() {
+      this.$store.dispatch("toClearError");
     },
-    logOut () {
-      this.$store.dispatch('toLogOut')
-      this.$router.push('/login')
-    }
+    logOut() {
+      this.$store.dispatch("toLogOut");
+      this.$router.push("/login");
+    },
   },
   computed: {
-    error () {
-      return this.$store.getters.error
+    error() {
+      return this.$store.getters.error;
     },
-    isUserLoggedIn () {
-      return this.$store.getters.isUserLoggedIn
+    isUserLoggedIn() {
+      return this.$store.getters.isUserLoggedIn;
     },
-    links () {
+    links() {
       if (this.isUserLoggedIn) {
         return [
-          {title: 'Home', icon: 'home', url: '/'},
-          {title: 'Orders', icon: 'view_module', url: '/orders'},
-          {title: 'New ad', icon: 'note_add', url: '/new'},
-          {title: 'My ads', icon: 'list', url: '/my'}
-        ]
+          { title: "Home", icon: "home", url: "/" },
+          { title: "Orders", icon: "view_module", url: "/orders" },
+          { title: "New ad", icon: "note_add", url: "/new" },
+          { title: "My ads", icon: "list", url: "/my" },
+        ];
       } else {
         return [
-          {title: 'Home', icon: 'home', url: '/'},
-          {title: 'Login', icon: 'lock', url: '/login'},
-          {title: 'Registration', icon: 'face', url: '/registration'}
-        ]
+          { title: "Home", icon: "home", url: "/" },
+          { title: "Login", icon: "lock", url: "/login" },
+          { title: "Registration", icon: "face", url: "/registration" },
+        ];
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-
 .pointer {
   cursor: pointer;
 }
-
 </style>
-

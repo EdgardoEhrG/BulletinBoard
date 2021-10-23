@@ -38,49 +38,50 @@
 
 <script>
 export default {
-  name: 'login',
-  data () {
+  name: "login",
+  data() {
     return {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
       valid: false,
       emailRules: [
-        v => !!v || 'E-mail is required',
-        v => /.+@.+/.test(v) || 'E-mail must be valid'
+        (v) => !!v || "E-mail is required",
+        (v) => /.+@.+/.test(v) || "E-mail must be valid",
       ],
       passwordRules: [
-        v => !!v || 'Password is required',
-        v => v.length >= 6 || 'Password must be equal or more than 6 characters'
-      ]
-    }
+        (v) => !!v || "Password is required",
+        (v) =>
+          v.length >= 6 || "Password must be equal or more than 6 characters",
+      ],
+    };
   },
   methods: {
-    onSubmit () {
+    onSubmit() {
       if (this.$refs.form.validate()) {
         const user = {
           email: this.email,
-          password: this.password
-        }
-        this.$store.dispatch('toLoginUser', user)
+          password: this.password,
+        };
+        this.$store
+          .dispatch("toLoginUser", user)
           .then((res) => {
-            this.$router.push('/')
+            this.$router.push("/");
           })
-          .catch(() => {})
+          .catch(() => {});
       }
-    }
+    },
   },
   computed: {
-    loading () {
-      return this.$store.getters.loading
+    loading() {
+      return this.$store.getters.loading;
+    },
+  },
+  created() {
+    if (this.$route.query["loginError"]) {
+      this.$store.dispatch("toSetError", "Please log in");
     }
   },
-  created () {
-    if (this.$route.query['loginError']) {
-      this.$store.dispatch('toSetError', 'Please log in')
-    }
-  }
-}
+};
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

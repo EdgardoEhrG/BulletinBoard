@@ -1,8 +1,6 @@
 # Bulletin' Board
 
-The application for ads (items)
-
-> Vue.js
+> Vue
 
 > Vuex
 
@@ -13,3 +11,9 @@ The application for ads (items)
 > Sass (SCSS)
 
 > Firebase
+
+## Useful elements
+
+- [ ] Vue 2 style
+- [ ] Vue 2 router elements
+- [ ] Auth

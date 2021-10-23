@@ -39,42 +39,40 @@
 
 <script>
 export default {
-  name: 'new-ad',
-  data () {
+  name: "new-ad",
+  data() {
     return {
-      title: '',
-      description: '',
+      title: "",
+      description: "",
       promo: false,
-      valid: false
-    }
+      valid: false,
+    };
   },
   methods: {
-    createAd () {
+    createAd() {
       if (this.$refs.form.validate()) {
         const newAd = {
           title: this.title,
           description: this.description,
           promo: this.promo,
-          imgSrc: 'https://cdn-images-1.medium.com/max/2000/1*nfvapd86apvGH-hNBYkYuw.png'
-        }
-        this.$store.dispatch('toCreateAd', newAd)
-            .then(() => {
-              this.$router.push('/my')
-            })
-            .catch(() => {})
+          imgSrc:
+            "https://cdn-images-1.medium.com/max/2000/1*nfvapd86apvGH-hNBYkYuw.png",
+        };
+        this.$store
+          .dispatch("toCreateAd", newAd)
+          .then(() => {
+            this.$router.push("/my");
+          })
+          .catch(() => {});
       }
-    }
+    },
   },
   computed: {
-    loading () {
-      return this.$store.getters.loading
-    }
-  }
-}
+    loading() {
+      return this.$store.getters.loading;
+    },
+  },
+};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
-
-
+<style lang="scss" scoped></style>

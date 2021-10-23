@@ -18,20 +18,17 @@
 
 <script>
 export default {
-  name: 'login',
+  name: "login",
   props: {
-    id: {type: String, required: true}
+    id: { type: String, required: true },
   },
   computed: {
-    ad () {
-      const id = this.id
-      return this.$store.getters.adById(id)
-    }
-  }
-}
+    ad() {
+      const id = this.id;
+      return this.$store.getters.adById(id);
+    },
+  },
+};
 </script>
 
-<style lang="scss" scoped>
-</style>
-
-
+<style lang="scss" scoped></style>
